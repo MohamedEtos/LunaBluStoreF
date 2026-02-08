@@ -37,13 +37,13 @@
 						</li>
 
 						<li class="p-b-10">
-							<a href="https://wa.me/201227534058 " aria-label="Visit our WhatsApp" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="https://wa.me/201554063260 " aria-label="Visit our WhatsApp" class="stext-107 cl7 hov-cl1 trans-04">
 								WhatsApp
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="https://www.instagram.com/reel/DT5qOW5jNP7/?igsh=MWtkZG11N2k5cm56cw%3D%3D" aria-label="Visit our Instagram page" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="https://www.instagram.com/luna.blustore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Visit our Instagram page" class="stext-107 cl7 hov-cl1 trans-04">
 								Instagram
 							</a>
 						</li>
@@ -58,7 +58,7 @@
 					</h2>
 
 					<p class="stext-107 cl7 size-201">
-						تواصل معنا علي 201227534058 
+						تواصل معنا علي 201554063260 
 					</p>
 
 					<div class="p-t-27">
@@ -70,7 +70,7 @@
 							<i class="fa fa-instagram"></i>
 						</a>
 
-						<a href="https://wa.me/201227534058 " aria-label="Visit our WhatsApp" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+						<a href="https://wa.me/201554063260 " aria-label="Visit our WhatsApp" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
 							<i class="fa fa-whatsapp"></i>
 						</a>
 					</div>
@@ -101,7 +101,7 @@
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Almonalisa &amp; devolped by <a href="https://wa.me/201033441143"target="_blank" rel="noopener noreferrer"
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by LunaBlu|لونا بلو &amp; devolped by <a href="https://wa.me/201033441143"target="_blank" rel="noopener noreferrer"
 >Mohamed Mahrous</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 

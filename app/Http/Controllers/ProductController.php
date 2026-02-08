@@ -86,7 +86,7 @@ class ProductController extends Controller
         return view('store.product', [
             'products' => $products,
             'fabrics' => $fabrics,
-            'title' => 'Almonalisa | متجر ملابس حريمي عصرية – خامات فاخرة وأسعار مناسبة',
+            'title' => 'LunaBlu|لونا بلو | متجر ملابس طرح عصرية – خامات فاخرة وأسعار مناسبة',
             'description'=>'تسوّق أحدث المنتجات بجودة عالية وأسعار مميزة. اكتشف تشكيلتنا المتنوعة التي تناسب جميع الأذواق مع تجربة شراء سهلة وآمنة.',
             'image' =>  asset('store/images/icons/favicon.png'),
             'url' => url()->current(),
@@ -104,7 +104,7 @@ class ProductController extends Controller
         return view('store.productshow',[
             'product' => $product,
             'products' => $products,
-            'title' => $product->name . ' | Almonalisa',
+            'title' => $product->name . ' | LunaBlu|لونا بلو',
             'description' =>$product->slug . '||' . $product->productDetalis,
             'image' =>  $product->product_img_p->mainImage,
             'url' => url()->current(),

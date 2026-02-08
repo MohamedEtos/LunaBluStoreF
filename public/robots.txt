@@ -8,4 +8,4 @@ Disallow: /register
 Allow: /
 Allow: /product/
 
-Sitemap: https://Almonalisa.store/sitemap.xml
+Sitemap: https://LunaBlu|لونا بلو.store/sitemap.xml

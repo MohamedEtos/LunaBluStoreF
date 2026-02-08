@@ -14,8 +14,8 @@ class SettingsSeeder extends Seeder
     {
         \App\Models\setting::create([
             'favicon' => 'store/images/icons/favicon.ico',
-            'mainLogo' => 'store/images/icons/logo-01.png',
-            'whiteLogo' => 'store/images/icons/logo-01.png', // Assuming white logo path if different
+            'mainLogo' => 'store/images/icons/logo-02.png',
+            'whiteLogo' => 'store/images/icons/logo-02.png', // Assuming white logo path if different
 
             'home_section_title' => 'اكتشفي جمال التفاصيل...',
 

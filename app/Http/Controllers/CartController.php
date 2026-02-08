@@ -234,7 +234,7 @@ private function buildCart(array $cart): array
         return view('store.shoping-cart', [
             'cartData' => $cartData,
             'governorate' => $governorate,
-            'title' => 'Almonalisa | سلة التسوق',
+            'title' => 'LunaBlu|لونا بلو | سلة التسوق',
             'description' => 'استعرض محتويات سلة التسوق الخاصة بك وتحقق من المنتجات التي قمت بإضافتها قبل إتمام عملية الشراء في متجرنا الإلكتروني.',
             'image' =>  asset('store/images/icons/favicon.ico'),
             'url' => url()->current(),
@@ -412,7 +412,7 @@ public function prossesCart(Request $request)
 
             return view ('store.successOrder',[ 
             'order' => $order_id,
-            'title' => 'Almonalisa | تأكيد الطلب',
+            'title' => 'LunaBlu|لونا بلو | تأكيد الطلب',
             'description' => 'تم تأكيد طلبك بنجاح في متجرنا الإلكتروني. شكرًا لاختيارك لنا!',
             'image' =>  asset('store/images/icons/favicon.ico'),
             'url' => url()->current(),
@@ -421,7 +421,7 @@ public function prossesCart(Request $request)
 
         // return view('store.successOrder', [
         // // 'order_id' => $order_id,
-        // 'title' => 'Almonalisa | تأكيد الطلب',
+        // 'title' => 'LunaBlu|لونا بلو | تأكيد الطلب',
         // 'description' => 'تم تأكيد طلبك بنجاح في متجرنا الإلكتروني. شكرًا لاختيارك لنا!',
         // 'image' =>  asset('store/images/icons/favicon.ico'),
         // 'url' => url()->current(),

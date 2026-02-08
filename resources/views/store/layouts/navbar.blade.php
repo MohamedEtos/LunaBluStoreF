@@ -22,23 +22,18 @@
 
 							{{-- <li class="label1" data-label1="hot"> --}}
 							<li>
-								<a target="_blank" href="https://wa.me/201227534058 ">WhatsApp</a>
+								<a target="_blank" href="https://wa.me/201554063260 ">WhatsApp</a>
 							</li>
 
 							<li>
-								<a target="_blank" href="https://www.facebook.com/profile.php?id=61582835720290">Facebook</a>
+								<a target="_blank" href="https://www.facebook.com/profile.php?id=61583415522354">Facebook</a>
 							</li>
 
 							<li>
-								<a target="_blank" href="https://www.instagram.com/reel/DT5qOW5jNP7/?igsh=MWtkZG11N2k5cm56cw%3D%3D">instagram</a>
-							</li>
-							<li>
-								<a target="_blank" href="https://web.telegram.org/a/#-1003031440172">Telgram</a>
+								<a target="_blank" href="https://www.instagram.com/luna.blustore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">instagram</a>
 							</li>
 
-							{{-- <li>
-								<a href="contact.html">Contact</a>
-							</li> --}}
+
 						</ul>
 					</div>
 
@@ -99,11 +94,11 @@
 
 							{{-- <li class="label1" data-label1="hot"> --}}
 							<li>
-								<a target="_blank" href="https://wa.me/201227534058 ">WhatsApp</a>
+								<a target="_blank" href="https://wa.me/201554063260 ">WhatsApp</a>
 							</li>
 
 							<li>
-								<a target="_blank" href="https://www.facebook.com/profile.php?id=61582835720290">Facebook</a>
+								<a target="_blank" href="https://www.facebook.com/profile.php?id=61583415522354">Facebook</a>
 							</li>
 
 							<li>

@@ -17,17 +17,17 @@
 <link rel="manifest" href="{{ asset('store/images/icons/site.webmanifest') }}">
 
 <!-- Open Graph -->
-<meta property="og:title" content="{{ $title ?? 'Almonalisa' }}">
+<meta property="og:title" content="{{ $title ?? 'LunaBlu|لونا بلو' }}">
 <meta property="og:description" content="{{ $description ?? 'متجر لونا بلو للملابس' }}">
-<meta property="og:image" content="{{ !empty($image) ? (str_starts_with($image, 'http') ? $image : asset($image)) : asset('store/images/icons/logo-01.png') }}">
+<meta property="og:image" content="{{ !empty($image) ? (str_starts_with($image, 'http') ? $image : asset($image)) : asset('store/images/icons/logo-02.png') }}">
 <meta property="og:url" content="{{ $url ?? url()->current() }}">
 <meta property="og:type" content="website">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ $title ?? 'Almonalisa' }}">
+<meta name="twitter:title" content="{{ $title ?? 'LunaBlu|لونا بلو' }}">
 <meta name="twitter:description" content="{{ $description ?? 'متجر لونا بلو للملابس' }}">
-<meta name="twitter:image" content="{{ !empty($image) ? (str_starts_with($image, 'http') ? $image : asset($image)) : asset('store/images/icons/logo-01.png') }}">
+<meta name="twitter:image" content="{{ !empty($image) ? (str_starts_with($image, 'http') ? $image : asset($image)) : asset('store/images/icons/logo-02.png') }}">
 
 
 <!-- Facebook -->

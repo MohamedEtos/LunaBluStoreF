@@ -124,7 +124,7 @@ $whatsappUrl = "https://wa.me/2" . ($Order->address->phone ?? 'No Data') . "?tex
 "مرحبا
 {$Order->address->full_name}
 
-شكرا لطلبك من Almonalisae
+شكرا لطلبك من LunaBlu|لونا بلوe
 رقم طلبك هو: {$Order->order_number}
 
 العنوان : {$Order->address->address} .  {$Order->address->area} . {$Order->address->governorate}

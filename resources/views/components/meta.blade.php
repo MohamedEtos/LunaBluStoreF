@@ -35,7 +35,7 @@
     <meta property="og:image" content="{{ $image ?? null }}">
 
     <img src="{{ $image ?? null }}" alt="">
-    <meta property="og:url" content="https://Almonalisa.store">
+    <meta property="og:url" content="https://LunaBlu|لونا بلو.store">
     <meta property="og:type" content="website">
 
 <meta name="csrf-token" content="{{ csrf_token() }}"> --}}

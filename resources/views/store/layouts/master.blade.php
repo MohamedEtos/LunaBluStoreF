@@ -7,9 +7,9 @@
     
     @if(isset($setting))
     @php
-        $primary = $setting->primary_color ?? '#ffd700';
+        $primary = $setting->primary_color ?? '#da0e7d';
         $secondary = $setting->secondary_color ?? '#222222';
-        $hover = $setting->hover_color ?? '#ffd700';
+        $hover = $setting->hover_color ?? '#da0e7d';
 
         // New Color Settings
         $mobileHeaderBg = $setting->mobile_header_bg ?? '#ffffff';
