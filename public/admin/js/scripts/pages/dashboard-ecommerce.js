@@ -39,12 +39,12 @@ const colors = trafficSourcesLabels.map(l => sourceColorMap[l] || '#9CA3AF');
 
 
 
-  var $primary = '#e3b40d';
+  var $primary = '#DA0E7D';
   var $success = '#28C76F';
   var $danger = '#EA5455';
   var $warning = '#FF9F43';
   var $info = '#00cfe8';
-  var $primary_light = '#FF9F43';
+  var $primary_light = '#A9A2F6';
   var $danger_light = '#f29292';
   var $success_light = '#55DD92';
   var $warning_light = '#ffc085';

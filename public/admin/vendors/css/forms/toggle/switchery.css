@@ -27,10 +27,10 @@
   background-clip: content-box;
 }
 
-.switchery>small {
+.switchery > small {
   background: #fff;
   border-radius: 100%;
-  box-shadow: 0 1px 3px rgba(128, 118, 28, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   height: 30px;
   position: absolute;
   top: 0;
@@ -45,7 +45,7 @@
   width: 33px;
 }
 
-.switchery-small>small {
+.switchery-small > small {
   height: 20px;
   width: 20px;
 }
@@ -56,7 +56,9 @@
   width: 66px;
 }
 
-.switchery-large>small {
+.switchery-large > small {
   height: 40px;
   width: 40px;
 }
+
+
