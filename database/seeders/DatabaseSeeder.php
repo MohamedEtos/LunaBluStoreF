@@ -20,6 +20,11 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('8472304'),
+        ]);
 
         $this->call(CategorySeeder::class);
         $this->call(GovernoratesSeeder::class);
