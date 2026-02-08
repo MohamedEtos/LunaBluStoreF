@@ -31,7 +31,7 @@ class SettingsSeeder extends Seeder
             'slider2_image' => 'store/images/slide-06.avif',
             'slider2_thumb' => 'store/images/thumb-02.avif',
             'slider2_title' => 'تفرّدي بستايلك: ملابس حصرية تكسر حاجز المألوف.',
-            'slider2_caption' => 'اكتشفي أحدث صيحات الملابس',
+            'slider2_caption' => 'اكتشفي أحدث صيحات الطرح',
             'slider2_btn_text' => 'اكتشف الان',
             'slider2_link' => route('product'),
 

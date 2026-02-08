@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('slider2_image')->nullable();
             $table->string('slider2_thumb')->nullable();
             $table->string('slider2_title')->nullable()->default('تفرّدي بستايلك: ملابس حصرية تكسر حاجز المألوف.');
-            $table->string('slider2_caption')->nullable()->default('اكتشفي أحدث صيحات الملابس');
+            $table->string('slider2_caption')->nullable()->default('اكتشفي أحدث صيحات الطرح');
             $table->string('slider2_btn_text')->nullable()->default('اكتشف الان');
             $table->string('slider2_link')->nullable();
 
