@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /visitorsList
+Disallow: /productList
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+
+Allow: /
+Allow: /product/
+
+Sitemap: https://Almonalisa.store/sitemap.xml
