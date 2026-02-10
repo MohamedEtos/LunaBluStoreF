@@ -40,21 +40,6 @@
 
 
 
-    <link rel="preload"
-    href="{{ asset('store/fonts/Alexandria/alexandria-v6-latin-regular.woff2') }}"
-    as="font"
-    type="font/woff2"
-    crossorigin>
 
 
-    <style>
-    @font-face {
-        font-family: 'Alexandria';
-        src: url('{{ asset('store/fonts/Alexandria/alexandria-v6-latin-regular.woff2') }}') format('woff2'),
-             url('{{ asset('store/fonts/Alexandria/Alexandria-VariableFont_wght.ttf') }}') format('truetype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
 
-    </style>

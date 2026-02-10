@@ -5,10 +5,6 @@
   float : right;
 }
 
-body {
-  font-family: "Alexandria", sans-serif;
-  font-weight: 400; /* 400 هو الخط العادي، 700 هو الخط العريض */
-}
 
 
 .main-menu .navigation > li ul li > a {

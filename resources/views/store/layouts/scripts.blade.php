@@ -46,7 +46,6 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="{{ asset('store/vendor/isotope/imagesloaded.pkgd.min.js') }}"></script>
 	<script src="{{ asset('store/vendor/isotope/isotope.pkgd.min.js') }}"></script>
 <!--===============================================================================================-->
 	<script src="{{ asset('store/vendor/sweetalert/sweetalert.min.js') }}"></script>

@@ -13,20 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alexandria:300,400,500,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
 
-     <style>
-    @font-face {
-        font-family: 'Alexandria';
-        src: url('{{ asset('store/fonts/Alexandria/alexandria-v6-latin-regular.woff2') }}') format('woff2'),
-             url('{{ asset('store/fonts/Alexandria/Alexandria-VariableFont_wght.ttf') }}') format('truetype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-    
-    body, h1, h2, h3, h4, h5, h6, p, span, a, li, button, input, textarea, select, .navigation, * {
-        font-family: 'Alexandria', sans-serif !important;
-    }
-    </style>
+
     
 </head>
 <body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
