@@ -386,19 +386,251 @@
 
 @endsection
 
-@section('head')
-{{-- Order Celebration Script --}}
-@if(request()->has('order_success'))
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
+@section('script')
+
+<style>
+    /* Skeleton Loading CSS */
+    .skeleton {
+        background: #f6f7f8;
+        background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+        background-size: 200% 100%; 
+        animation: shimmer 1.5s infinite linear;
+        border-radius: 4px;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: 100% 0; }
+        100% { background-position: -100% 0; }
+    }
+
+    .skeleton-img {
+        width: 100%;
+        height: 300px; /* Approximate height of product image */
+        display: block;
+    }
+
+    .skeleton-text {
+        height: 14px;
+        margin-bottom: 8px;
+        width: 80%;
+    }
+
+    .skeleton-text.short {
+        width: 40%;
+    }
+    
+    .isotope-item {
+        transition: opacity 0.3s ease;
+    }
+    
+    img.lazy-load {
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+    }
+    
+    img.lazy-load.loaded {
+        opacity: 1;
+    }
+</style>
+
+{{-- Great after order celebration script --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="{{ asset('admin/vendors/js/extensions/toastr.min.js') }}"></script>
+
+    <script>
         function celebrateOrder() {
             confetti({ particleCount: 140, spread: 70, origin: { y: 0.6 } });
             setTimeout(() => confetti({ particleCount: 100, spread: 120, origin: { y: 0.7 } }), 250);
         }
-        celebrateOrder();
-    });
-</script>
-@endif
-@endsection
+    </script>
 
+        @if(Session::has('success'))
+            <script>toastr.success('{{ session('success') }}', 'تمت العمليه ');</script>
+            <script>celebrateOrder()</script>
+            @endif
+
+        @if(Session::has('error'))
+            <script>toastr.error('{{ session('error') }}', ' error ');</script>
+        @endif
+
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Cache Isotope container (using jQuery because Isotope is a jQuery plugin here)
+        var $grid = $('.isotope-grid');
+
+        // 1. Lazy Loading Setup
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.dataset.src;
+                    const srcset = img.dataset.srcset;
+                    
+                    if (src) {
+                        img.src = src;
+                        img.removeAttribute('data-src');
+                    }
+                    if (srcset) {
+                        img.srcset = srcset;
+                        img.removeAttribute('data-srcset');
+                    }
+                    
+                    img.onload = () => {
+                        img.classList.remove('skeleton'); 
+                        img.classList.add('loaded');
+                        
+                        // Remove overlay
+                        const placeholder = img.parentElement.querySelector('.skeleton-overlay');
+                        if (placeholder) {
+                            placeholder.remove();
+                        }
+
+                        // Trigger Isotope layout update
+                        $grid.isotope('layout');
+                    };
+
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        function observeImages(container = document) {
+            const images = container.querySelectorAll('img.lazy-load');
+            images.forEach(img => imageObserver.observe(img));
+        }
+        observeImages();
+
+
+        // 2. Infinite Scroll with Skeleton
+        let loading = false;
+        let productsWrapper = document.getElementById('products-wrapper'); // Keep this for reference if needed, but we use $grid mostly
+
+        // Skeleton HTML Template
+        function getSkeletonHTML(count = 4) {
+            let html = '';
+            for (let i = 0; i < count; i++) {
+                html += `
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 skeleton-item isotope-item"> <!-- Added isotope-item class -->
+                    <div class="block2">
+                        <div class="block2-pic hov-img0 skeleton skeleton-img" style="position: relative;"></div>
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }
+            return html;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (loading) return;
+
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
+                let cursorEl = document.getElementById('next-cursor');
+                if (!cursorEl) return;
+
+                let url = cursorEl.dataset.url;
+                loading = true;
+                document.getElementById('loading').style.display = 'block';
+
+                // Append Skeletons using Isotope
+                let skeletons = $(getSkeletonHTML(4));
+                $grid.append(skeletons).isotope('appended', skeletons);
+
+                fetch(url, {
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(res => res.text())
+                .then(html => {
+                    cursorEl.remove();
+
+                    // Remove Skeletons using Isotope
+                    // detailed removal to avoid layout breaks
+                    $grid.isotope('remove', skeletons).isotope('layout');
+
+                    // Parse New Content
+                    let tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+                    
+                    let newItems = [];
+                    let nextCursor = null;
+
+                    Array.from(tempDiv.children).forEach(child => {
+                         if (child.classList.contains('col-sm-6')) { 
+                             newItems.push(child);
+                         } else if (child.id === 'next-cursor') {
+                             nextCursor = child;
+                         }
+                    });
+
+                    // Append real items via Isotope
+                    if (newItems.length > 0) {
+                        let $newItems = $(newItems);
+                        $grid.append($newItems).isotope('appended', $newItems);
+                        
+                        // Observe new images
+                        observeImages(productsWrapper); // or pass document, observer handles duplicates gracefully
+                    }
+
+                    // Re-add cursor if exists
+                    if (nextCursor) {
+                        productsWrapper.appendChild(nextCursor);
+                    }
+
+                    loading = false;
+                    document.getElementById('loading').style.display = 'none';
+                })
+                .catch(err => {
+                    console.error('Error loading products:', err);
+                    $grid.isotope('remove', skeletons).isotope('layout');
+                    loading = false;
+                    document.getElementById('loading').style.display = 'none';
+                });
+            }
+        });
+    });
+    </script>
+
+    <script>
+    (function ($) {
+    "use strict";
+    // [ Fixed Header ]*/
+    var headerDesktop = $('.container-menu-desktop');
+    var wrapMenu = $('.wrap-menu-desktop');
+    if($('.top-bar').length > 0) {
+        var posWrapHeader = $('.top-bar').height();
+    }
+    else {
+        var posWrapHeader = 0;
+    }
+
+
+    if($(window).scrollTop() > posWrapHeader) {
+        $(headerDesktop).addClass('fix-menu-desktop');
+        $(wrapMenu).css('top',0);
+    }
+    else {
+        $(headerDesktop).removeClass('fix-menu-desktop');
+        $(wrapMenu).css('top',posWrapHeader - $(this).scrollTop());
+    }
+
+    $(window).on('scroll',function(){
+        if($(this).scrollTop() > posWrapHeader) {
+            $(headerDesktop).addClass('fix-menu-desktop');
+            $(wrapMenu).css('top',0);
+        }
+        else {
+            $(headerDesktop).removeClass('fix-menu-desktop');
+            $(wrapMenu).css('top',posWrapHeader - $(this).scrollTop());
+        }
+    });
+    })(jQuery);
+    </script>
+
+@endsection
