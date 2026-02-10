@@ -30,34 +30,9 @@
 <meta name="twitter:image" content="{{ !empty($image) ? (str_starts_with($image, 'http') ? $image : asset($image)) : asset('store/images/icons/logo-02.png') }}">
 
 
-<!-- Facebook -->
-
-
-<meta property="fb:app_id" content="1882574705681621">
-
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0&appId=1882574705681621">
-</script>
-
-
-{{-- <script>
-    FB.api(
-  '/me',
-  'GET',
-  {"fields":"id,short_name"},
-  function(response) {
-      // Insert your code here
-  }
-);
-    </script> --}}
-
-
 
 
 <link rel="canonical" href="{{ $url ?? '' }}">
-
 
 
 {{-- search engines verification tags --}}
