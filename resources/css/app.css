@@ -1,3 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'resources/css/main.css';
+@import 'resources/css/util.css';
+@import 'resources/vendor/slick/slick.css';
+
+/* this not  */
+/* @import '@fortawesome/fontawesome-free/css/all.min.css'; */
+@import 'resources/fonts/iconic/css/material-design-iconic-font.min.css';
+@import 'resources/vendor/css-hamburgers/hamburgers.min.css';
+@import 'resources/vendor/animate/animate.css';
+@import 'select2/dist/css/select2.min.css';
+@import 'resources/vendor/daterangepicker/daterangepicker.css';
+@import 'resources/vendor/MagnificPopup/magnific-popup.css';
+@import 'resources/vendor/perfect-scrollbar/perfect-scrollbar.css';

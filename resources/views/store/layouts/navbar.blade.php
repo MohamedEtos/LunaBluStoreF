@@ -65,7 +65,7 @@
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
 				<div class="flex-c-m h-full p-r-5">
-					<div class="icon-header-item  hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart cartCount"id="" data-notify="0" style="color: #ffd700">
+					<div class="icon-header-item  hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart cartCount"id="" data-notify="0" style="color: #f0287d">
 						<i class="zmdi zmdi-shopping-cart"></i>
 					</div>
 				</div>

@@ -1,0 +1,36 @@
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="لونا لبو للملابس">
+    <meta name="author" content="PIXINVENT">
+    <title>Al Monalisa</title>
+    <link rel="apple-touch-icon" href="<?php echo e(asset('store/images/icons/apple-touch-icon.png')); ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(asset('store/images/icons/favicon.ico')); ?>">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/vendors/css/vendors-rtl.min.css')); ?>">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/bootstrap.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/bootstrap-extended.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/colors.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/components.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/themes/dark-layout.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/themes/semi-dark-layout.css')); ?>">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/core/menu/menu-types/vertical-menu.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/core/colors/palette-gradient.css')); ?>">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css-rtl/custom-rtl.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/style-rtl.css')); ?>">
+    <!-- END: Custom CSS-->
+<?php /**PATH C:\Users\Papion\Documents\GitHub\LunaBluStoreF\resources\views/admin/layout/head.blade.php ENDPATH**/ ?>

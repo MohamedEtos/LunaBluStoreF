@@ -37,7 +37,6 @@
 
     <link rel="stylesheet" href="{{ asset('store/vendor/perfect-scrollbar/perfect-scrollbar.css') }}"
         media="print" onload="this.media='all'">
-<meta name="google-site-verification" content="HzICnV2wklHwd_qZhReQYD_9E9Hj9kQMYjm6ddtdzJk" />
 
 
 

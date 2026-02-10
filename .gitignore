@@ -6,11 +6,10 @@
 !.env.example
 
 public/storage
-/storage/*.key
+storage/*.key
 
 
 /storage/logs
-/storage/framework/*
 !/storage/framework/.gitignore
 
 
