@@ -7,6 +7,35 @@
     <link rel="preload" as="image" href="{{ asset($setting->slider2_image) }}" type="image/avif" fetchpriority="high">
     <link rel="preload" as="image" href="{{ asset($setting->slider3_image) }}" type="image/avif" fetchpriority="high">
     @endif
+
+    <style>
+        .block1.wrap-pic-w {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .block1.wrap-pic-w img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        /* Large banners (2 columns) */
+        .col-md-6 .block1.wrap-pic-w {
+            position: relative;
+            padding-bottom: 64.91%; /* 370/570 = aspect ratio */
+        }
+        
+        /* Small banners (3 columns) */
+        .col-lg-4 .block1.wrap-pic-w {
+            position: relative;
+            padding-bottom: 64.86%; /* 240/370 = aspect ratio */
+        }
+    </style>
 @endsection
 @section('content')
 

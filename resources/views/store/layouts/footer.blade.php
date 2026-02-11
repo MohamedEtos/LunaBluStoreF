@@ -24,11 +24,7 @@
 					</h2>
 
 					<ul>
-						<li class="p-b-10">
-							<a href="https://web.telegram.org/a/#-1003031440172"  aria-label="Visit our instragram page" class="stext-107 cl7 hov-cl1 trans-04">
-								Telgram
-							</a>
-						</li>
+
 
 						<li class="p-b-10">
 							<a href="https://www.facebook.com/profile.php?id=61583415522354" aria-label="Visit our Facebook page" class="stext-107 cl7 hov-cl1 trans-04">

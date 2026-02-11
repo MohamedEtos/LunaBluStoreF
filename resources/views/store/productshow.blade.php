@@ -268,12 +268,6 @@
                                 <i class="fa fa-instagram"></i>
 							</a>
 
-
-
-							<a href="https://web.telegram.org/a/#-1003031440172" data-tooltip="telegram" aria-label="Visit our telegram page" class="fs-35 mr-3 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2  tooltip100">
-                                <span class="sr-only">Telgram</span>
-                                <i class="fa fa-telegram"></i>
-							</a>
 							<a href="https://wa.me/201554063260" data-tooltip="whatsapp" aria-label="Visit our whatsapp " class="fs-35 mr-3 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2  tooltip100">
                                 <span class="sr-only">whatsapp</span>
                                 <i class="fa fa-whatsapp"></i>
