@@ -59,7 +59,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->
 			<div class="logo-mobile">
-				<a href="/"><img src="{{ asset($setting->mainLogo) }}" alt="IMG-LOGO"></a>
+				<a href="/"><img src="{{ asset($setting->whiteLogo) }}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->

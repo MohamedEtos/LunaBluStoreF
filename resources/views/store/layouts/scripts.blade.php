@@ -77,12 +77,12 @@
 
 		/*---------------------------------------------*/
 
-		$('.js-addcart-detail').each(function(){
-			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').text();
-			$(this).on('click', function(){
-				swal(nameProduct, "تمت الاضافه", "success");
-			});
-		});
+		// $('.js-addcart-detail').each(function(){
+		// 	var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').text();
+		// 	$(this).on('click', function(){
+		// 		swal(nameProduct, "تمت الاضافه", "success");
+		// 	});
+		// });
 
         // Global Flash Messages (Success/Error)
         @if(Session::has('success'))

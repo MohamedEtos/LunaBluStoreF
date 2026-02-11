@@ -335,7 +335,7 @@
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												Al Monalisa
+												lunablu
 											</span>
 										</li>
 
@@ -585,21 +585,37 @@
      });
 
     // Size Selection
-    $('.size-option').on('click', function() {
-        if($(this).hasClass('disabled')) return;
-        
-        $('.size-option').removeClass('active');
-        $(this).addClass('active');
-        $('#selected-size').val($(this).data('value'));
-    });
+    $(document).ready(function() {
+        // Auto-select size if only one option exists
+        var availableSizes = $('.size-option').not('.disabled');
+        if (availableSizes.length === 1) {
+            availableSizes.addClass('active');
+            $('#selected-size').val(availableSizes.data('value'));
+        }
 
-    // Color Selection
-    $('.color-option').on('click', function() {
-        if($(this).hasClass('disabled')) return;
-        
-        $('.color-option').removeClass('active');
-        $(this).addClass('active');
-        $('#selected-color').val($(this).data('value'));
+        // Auto-select color if only one option exists
+        var availableColors = $('.color-option').not('.disabled');
+        if (availableColors.length === 1) {
+            availableColors.addClass('active');
+            $('#selected-color').val(availableColors.data('value'));
+        }
+
+        $('.size-option').on('click', function() {
+            if($(this).hasClass('disabled')) return;
+            
+            $('.size-option').removeClass('active');
+            $(this).addClass('active');
+            $('#selected-size').val($(this).data('value'));
+        });
+
+        // Color Selection
+        $('.color-option').on('click', function() {
+            if($(this).hasClass('disabled')) return;
+            
+            $('.color-option').removeClass('active');
+            $(this).addClass('active');
+            $('#selected-color').val($(this).data('value'));
+        });
     });
 
     // Add to cart AJAX
