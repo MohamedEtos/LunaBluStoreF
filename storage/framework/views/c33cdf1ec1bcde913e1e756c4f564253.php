@@ -8,9 +8,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(asset('store/images/icons/favicon.ico')); ?>">
     
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/vendors/css/vendors-rtl.min.css')); ?>">

@@ -19,11 +19,12 @@ $(document).on('click', '.add_cart', function (e) {
     .done(function (res) {
             refreshSideCart();
 
-        $(".cartCount").attr("data-notify", res.cart.count); // Change the href
+        $(".cartCount").attr("data-notify", res.cart.count);
 
       console.log(res.cart);
     })
     .fail(function (xhr) {
+      handleCartError(xhr, 'إضافة المنتج للسلة');
     });
 });
 
@@ -37,9 +38,11 @@ $(document).on('change', '.cart_qty', function () {
     type: "PATCH",
     data: { product_id: productId, qty: qty },
     success: function (res) {
-    $(".cartCount").attr("data-notify", res.cart.count); // Change the href
-
+      $(".cartCount").attr("data-notify", res.cart.count);
       console.log(res.cart);
+    },
+    error: function (xhr) {
+      handleCartError(xhr, 'تحديث الكمية');
     }
   });
 });
@@ -54,8 +57,10 @@ $(document).on('click', '.remove_item', function () {
     type: "DELETE",
     data: { product_id: productId },
     success: function (res) {
-    $(".cartCount").attr("data-notify", res.cart.count); // Change the href
-
+      $(".cartCount").attr("data-notify", res.cart.count);
+    },
+    error: function (xhr) {
+      handleCartError(xhr, 'حذف المنتج');
     }
   });
 });
@@ -67,8 +72,10 @@ $(document).on('click', '#clearCart', function () {
     url: "<?php echo e(route('cart.clear')); ?>",
     type: "DELETE",
     success: function (res) {
-          $(".cartCount").attr("data-notify", '0'); // Change the href
-
+      $(".cartCount").attr("data-notify", '0');
+    },
+    error: function (xhr) {
+      handleCartError(xhr, 'تفريغ السلة');
     }
   });
 });
@@ -159,6 +166,10 @@ $(document).on('click', '.js-remove-sidecart', function () {
     data: { product_id: productId },
     success: function () {
       refreshSideCart();
+    },
+    error: function (xhr) {
+      handleCartError(xhr, 'حذف المنتج');
+      refreshSideCart(); // Refresh anyway to show current state
     }
   });
 });
@@ -172,6 +183,9 @@ $(document).on('click', '#clearCart', function (e) {
     type: "DELETE",
     success: function () {
       refreshSideCart();
+    },
+    error: function (xhr) {
+      handleCartError(xhr, 'تفريغ السلة');
     }
   });
 });
@@ -187,6 +201,48 @@ function escapeHtml(text) {
     .replaceAll('>','&gt;')
     .replaceAll('"','&quot;')
     .replaceAll("'","&#039;");
+}
+
+// Handle cart errors with throttle detection
+function handleCartError(xhr, operation) {
+  let errorMessage = 'حدث خطأ أثناء ' + operation;
+  
+  // Check for throttle exception (429 or specific message)
+  if (xhr.status === 429 || 
+      (xhr.responseJSON && xhr.responseJSON.message === "Too Many Attempts.")) {
+    
+    if (typeof swal !== 'undefined') {
+      swal({
+        title: "⚠️ تحذير!",
+        text: "عدد كبير من المحاولات! يرجى الانتظار قليلاً قبل المحاولة مرة أخرى.\n\nإذا كنت تحاول التلاعب بالسلة، يرجى العلم أن النظام يراقب هذه التصرفات.",
+        icon: "warning",
+        button: "حسناً",
+        dangerMode: true
+      });
+    } else {
+      alert("⚠️ تحذير!\n\nعدد كبير من المحاولات! يرجى الانتظار قليلاً.\n\nإذا كنت تحاول التلاعب بالسلة، يرجى العلم أن النظام يراقب هذه التصرفات.");
+    }
+    
+    console.warn('🚨 Throttle limit exceeded for cart operation:', operation);
+    return;
+  }
+  
+  // Handle other errors
+  if (xhr.responseJSON && xhr.responseJSON.message) {
+    errorMessage = xhr.responseJSON.message;
+  } else if (xhr.status === 500) {
+    errorMessage = 'حدث خطأ في الخادم، يرجى المحاولة لاحقاً';
+  } else if (xhr.status === 404) {
+    errorMessage = 'المنتج غير موجود';
+  }
+  
+  if (typeof swal !== 'undefined') {
+    swal("خطأ", errorMessage, "error");
+  } else {
+    alert(errorMessage);
+  }
+  
+  console.error('Cart error:', xhr);
 }
 
 
