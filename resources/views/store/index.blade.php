@@ -490,7 +490,24 @@
         // Cache Isotope container (using jQuery because Isotope is a jQuery plugin here)
         var $grid = $('.isotope-grid');
 
-        // 1. Lazy Loading Setup
+        // Function to trigger layout update safely
+        function updateLayout() {
+            $grid.isotope('layout');
+        }
+
+        // Debounce function to prevent excessive layout updates
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), wait);
+            };
+        }
+
+        const debouncedLayout = debounce(updateLayout, 100);
+
+        // 1. Lazy Loading Setup (for new/dynamic images)
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -498,15 +515,7 @@
                     const src = img.dataset.src;
                     const srcset = img.dataset.srcset;
                     
-                    if (src) {
-                        img.src = src;
-                        img.removeAttribute('data-src');
-                    }
-                    if (srcset) {
-                        img.srcset = srcset;
-                        img.removeAttribute('data-srcset');
-                    }
-                    
+                    // Assign onload BEFORE setting src to catch immediate loads
                     img.onload = () => {
                         img.classList.remove('skeleton'); 
                         img.classList.add('loaded');
@@ -518,9 +527,23 @@
                         }
 
                         // Trigger Isotope layout update
-                        $grid.isotope('layout');
+                        debouncedLayout();
                     };
 
+                    if (src) {
+                        img.src = src;
+                        img.removeAttribute('data-src');
+                    }
+                    if (srcset) {
+                        img.srcset = srcset;
+                        img.removeAttribute('data-srcset');
+                    }
+
+                    // Check if image is already complete (cached)
+                    if (img.complete && img.naturalHeight !== 0) {
+                         img.onload(); // Manually trigger logic
+                    }
+                    
                     observer.unobserve(img);
                 }
             });
@@ -532,8 +555,19 @@
         }
         observeImages();
 
+        // 2. Fix for Initial Images (that use native loading="lazy")
+        // Select all images in the grid that are NOT marked for manual lazy load
+        const initialImages = document.querySelectorAll('.isotope-grid img:not(.lazy-load)');
+        initialImages.forEach(img => {
+            if (img.complete) {
+                 debouncedLayout();
+            } else {
+                img.addEventListener('load', debouncedLayout);
+            }
+        });
 
-        // 2. Infinite Scroll with Skeleton
+
+        // 3. Infinite Scroll with Skeleton
         let loading = false;
         let productsWrapper = document.getElementById('products-wrapper'); // Keep this for reference if needed, but we use $grid mostly
 
@@ -603,7 +637,17 @@
                         let $newItems = $(newItems);
                         $grid.append($newItems).isotope('appended', $newItems);
                         
-                        // Observe new images
+                        // Observe new images for lazy loading if they have the class
+                        // Note: Our load_more.blade.php uses native loading currently, so we need to bind load listeners manually
+                        $newItems.find('img').each(function() {
+                             if (this.complete) {
+                                 debouncedLayout();
+                             } else {
+                                 this.addEventListener('load', debouncedLayout);
+                             }
+                        });
+
+
                         observeImages(productsWrapper); // or pass document, observer handles duplicates gracefully
                     }
 

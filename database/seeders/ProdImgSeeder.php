@@ -32,6 +32,38 @@ class ProdImgSeeder extends Seeder
                 'product_id' => 4,
                 'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
             ],
+            [
+                'product_id' => 5,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
+            [
+                'product_id' => 6,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
+            [
+                'product_id' => 7,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
+            [
+                'product_id' => 8,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
+            [
+                'product_id' => 9,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
+            [
+                'product_id' => 10,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
+            [
+                'product_id' => 11,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
+            [
+                'product_id' => 12,
+                'mainImage' => 'storage/images/w9vCuk5HXGGj2lR4syPM-800.webp',
+            ],
         ];
 
     
