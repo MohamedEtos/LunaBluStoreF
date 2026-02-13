@@ -49,7 +49,7 @@
                                     <p class="p-2">
 
                                     </p>
-                                    <a class="btn text-white  btn-lg mt-2" style="background-color: #e3b40d" href="{{ url('/') }}">Back to Home</a>
+                                    <a class="btn text-white  btn-lg mt-2" style="background-color: #DA0E7D" href="{{ url('/') }}">Back to Home</a>
                                 </div>
                             </div>
                         </div>
